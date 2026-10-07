@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -32,14 +32,72 @@ class HomePage extends StatelessWidget {
               size: 26,
             ),
           ),
-
           const SizedBox(width: 8),
         ],
       ),
 
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color(0xFF6C5A9E),
+              ),
+              accountName: const Text(
+                'My First App',
+              ),
+              accountEmail: const Text(
+                'Welcome!',
+              ),
+              currentAccountPicture: const CircleAvatar(
+                backgroundColor: Color(0xFFF0E9FF),
+                child: Icon(
+                  Icons.local_florist,
+                  color: Color(0xFF8067B7),
+                  size: 30,
+                ),
+              ),
+            ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.home_outlined,
+                color: Color(0xFF6C5A9E),
+              ),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.info_outline,
+                color: Color(0xFF6C5A9E),
+              ),
+              title: const Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.contact_mail_outlined,
+                color: Color(0xFF6C5A9E),
+              ),
+              title: const Text('Contact'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
       body: Stack(
         children: [
-
           // Decorative circle - top right
           Positioned(
             top: -70,
@@ -47,9 +105,9 @@ class HomePage extends StatelessWidget {
             child: Container(
               width: 180,
               height: 180,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFFE3D6FF),
+                color: Color(0xFFE3D6FF),
               ),
             ),
           ),
@@ -61,9 +119,9 @@ class HomePage extends StatelessWidget {
             child: Container(
               width: 190,
               height: 190,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFFE8DFFF),
+                color: Color(0xFFE8DFFF),
               ),
             ),
           ),
@@ -73,20 +131,18 @@ class HomePage extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 28),
               padding: const EdgeInsets.symmetric(
-                horizontal: 28,
-                vertical: 38,
+                horizontal: 25,
+                vertical: 25,
               ),
-
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(32),
-
+                borderRadius: BorderRadius.circular(28),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF6C5A9E).withOpacity(0.16),
-                    blurRadius: 30,
-                    spreadRadius: 2,
-                    offset: const Offset(0, 15),
+                    color: const Color(0x296C5A9E),
+                    blurRadius: 25,
+                    spreadRadius: 1,
+                    offset: const Offset(0, 10),
                   ),
                 ],
               ),
@@ -94,119 +150,164 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
-                  // Flower icon
+                  // Flower
                   Container(
-                    width: 95,
-                    height: 95,
-
-                    decoration: BoxDecoration(
+                    width: 75,
+                    height: 75,
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: const Color(0xFFF0E9FF),
+                      color: Color(0xFFF0E9FF),
                     ),
-
                     child: const Icon(
                       Icons.local_florist,
-                      size: 52,
+                      size: 42,
                       color: Color(0xFF8067B7),
                     ),
                   ),
 
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 15),
 
-                  // Small label
+                  // Welcome
                   Text(
                     'WELCOME',
                     style: GoogleFonts.poppins(
-                      fontSize: 12,
+                      fontSize: 11,
                       letterSpacing: 3,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF9B89B8),
                     ),
                   ),
 
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 5),
 
-                  // Main heading
+                  // Heading
                   Text(
-                    'Hello,Tamima!',
+                    'Hello,everyone!',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.playfairDisplay(
-                      fontSize: 34,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: const Color(0xFF4B3D70),
                     ),
                   ),
 
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 8),
 
                   // Subtitle
                   Text(
                     'A little space for creativity,\nideas & beautiful things.',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      height: 1.7,
+                      fontSize: 13,
+                      height: 1.5,
                       color: const Color(0xFF81758F),
                     ),
                   ),
 
-                  const SizedBox(height: 28),
+                  const SizedBox(height: 18),
 
                   // Decorative divider
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 35,
+                        width: 30,
                         height: 1,
                         color: const Color(0xFFD8CBEF),
                       ),
-
-                      const SizedBox(width: 10),
-
+                      const SizedBox(width: 8),
                       const Icon(
                         Icons.favorite_border_rounded,
-                        size: 17,
+                        size: 15,
                         color: Color(0xFF9B7FC7),
                       ),
-
-                      const SizedBox(width: 10),
-
+                      const SizedBox(width: 8),
                       Container(
-                        width: 35,
+                        width: 30,
                         height: 1,
                         color: const Color(0xFFD8CBEF),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 28),
+                  const SizedBox(height: 18),
 
-                  // Button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 52,
-
-                    child: ElevatedButton(
-                      onPressed: () {},
-
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF6C5A9E),
-                        foregroundColor: Colors.white,
-                        elevation: 0,
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
+                  // Explore button
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF6C5A9E),
+                      foregroundColor: Colors.white,
+                      fixedSize: const Size(250, 45),
+                      elevation: 3,
+                      shadowColor: const Color(0xFF6C5A9E),
+                      side: const BorderSide(
+                        color: Color(0xFF8067B7),
+                        width: 1.5,
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: Text(
+                      'Explore',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
 
-                      child: Text(
-                        'Explore',
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  const SizedBox(height: 8),
+
+                  // About button
+                  OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: const Color(0xFF6C5A9E),
+                      fixedSize: const Size(250, 45),
+                      side: const BorderSide(
+                        color: Color(0xFF9B7FC7),
+                        width: 2,
+                      ),
+                      elevation: 2,
+                      shadowColor: const Color(0xFF9B7FC7),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: Text(
+                      'About',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  // Contact button
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      foregroundColor: const Color(0xFF8067B7),
+                      fixedSize: const Size(250, 45),
+                      side: const BorderSide(
+                        color: Color(0xFFD8CBEF),
+                        width: 1.5,
+                      ),
+                      elevation: 2,
+                      shadowColor: const Color(0xFFD8CBEF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: Text(
+                      'Contact',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
